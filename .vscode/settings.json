@@ -1,0 +1,18 @@
+{
+    // eslint, which uses prettier config
+    "eslint.format.enable": true,
+    "eslint.useFlatConfig": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    // prettier
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.enable": false
+}
