@@ -1,0 +1,3 @@
+[submodule "src/libs/utils/api-declr"]
+	path = src/libs/utils/api-declr
+	url = git@github.com:TejBirringTM/api-declr.git
