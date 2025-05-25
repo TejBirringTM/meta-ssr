@@ -11,8 +11,8 @@
         "typescript",
         "typescriptreact"
     ],
-    // prettier
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "prettier.enable": false
+    // prettier (disabled to prevent conflict ∵ editor extension)
+    // "prettier.enable": true
+    // "editor.formatOnSave": true,
+    // "editor.defaultFormatter": "esbenp.prettier-vscode",
 }
