@@ -1,17 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SSR Template
+
+This is a template for a SSR (Server-Side Rendering) Application based on [Next.js](https://nextjs.org).
+
+Features:
+
+- Relational Database: PostgreSQL
+  (interfaced using Prisma ORM)
+
+- Declarative schema-validated API endpoints
+
+- Federated Authentication
+  - Google Provider
+
+- Multitenant Operation
+  - Role-based permissions
 
 ## Getting Started
 
-First, run the development server:
+### Setting up the Environment
+
+Create a `.env` file based on `.env.example`.
+
+### Bringing up the Development Infrastructure
+
+1. Source .env file
+
+    ```bash
+        cd <project dir>
+        set -a && source .env && source +a
+    ```
+
+2. Use docker-compose to launch containers
+
+    ```bash
+        cd infra
+        docker-compose up -d
+    ```
+
+3. Run the database pre-initialisation SQL (only once, unless containers or corresponding volumes were destroyed)
+
+    ```bash
+        cd infra/scripts
+        ./execute.sh 00-initialise-db.sql
+    ```
+
+4. Run the following command to create data tables using the Prisma schema (rerun this command whenever you change a Prisma schema file in `./prisma/schema`)
+
+    ```bash
+        npm run resync-db
+    ```
+
+5. Run the database post-initialisation SQL (only once, unless containers or corresponding volumes were destroyed)
+
+    ```bash
+        cd infra/scripts
+        ./execute 01-create-user-for-server.sql
+    ```
+
+### Developing the SSR (Next.js)
+
+To run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -22,15 +73,10 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Learn More
 
+### Next.js Resources
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js)

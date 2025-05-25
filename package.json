@@ -1,5 +1,5 @@
 {
-  "name": "ssr-proj",
+  "name": "ssr-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "resync-db": "DATABASE_URL=$MIGRATION_PG_URL && npx prisma generate --schema ./prisma/schema && npx prisma db push --schema ./prisma/schema  --force-reset"
+    "resync-db": "PG_URL=$MIGRATION_PG_URL && npx prisma generate --schema ./prisma/schema && npx prisma db push --schema ./prisma/schema  --force-reset"
   },
   "eslintConfig": {
     "cache": true,
