@@ -3,8 +3,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   // properties
-  email String
-  emailVerified Boolean
+  email String?
+  emailVerified Boolean?
   // many-to-many relationship with Project
   projects ProjectUser[]
 }
