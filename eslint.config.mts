@@ -40,7 +40,7 @@ export default tseslint.config([
 
     // TypeScript configuration
     {
-        files: ["src/**/*.ts", "src/**/*.ts"],
+        files: ["src/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
         languageOptions: {
             parser: typescriptParser,
             parserOptions: {
@@ -84,7 +84,7 @@ export default tseslint.config([
 
     // Custom rules
     {
-        files: ["src/**/*.ts", "src/**/*.ts"],
+        files: ["src/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"],
         rules: {
             "react-hooks/exhaustive-deps": "error",
             "no-console": ["warn", { allow: ["debug", "warn", "error"] }],
@@ -104,7 +104,11 @@ export default tseslint.config([
 
     // Prettier integration
     {
-        files: ["src/**/*.ts", "src/**/*.ts", "*.config.{js,mjs,ts,mts}"],
+        files: [
+            "src/**/*.{ts,tsx}",
+            "src/**/*.{ts,tsx}",
+            "*.config.{js,mjs,ts,mts}",
+        ],
         plugins: {
             prettier: prettierPlugin,
         },
