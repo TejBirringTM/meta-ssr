@@ -2,11 +2,11 @@ import prisma from "@/libs/prisma";
 
 export async function signInOrSignUp(
     userId: string,
-    email?: string,
-    emailVerified?: boolean
+    email: string | null,
+    emailVerified: boolean
 ) {
     // Create user if doesn't exist in DB
-    const foundUserInDatabase = await prisma.user.findFirst({
+    const foundUserInDatabase = await prisma.postgres.user.findFirst({
         where: {
             id: userId,
         },
@@ -14,11 +14,20 @@ export async function signInOrSignUp(
     if (foundUserInDatabase) {
         console.debug("Sign in: User found:", foundUserInDatabase);
     } else {
-        const createdUserInDatabase = await prisma.user.create({
+        const createdUserInDatabase = await prisma.postgres.user.create({
             data: {
                 id: userId,
-                email,
-                emailVerified,
+                profile: {
+                    create: {
+                        email,
+                        emailVerified,
+                    },
+                },
+                options: {
+                    create: {
+                        welcomeFlag: true,
+                    },
+                },
                 projects: {
                     create: {
                         role: "OWNER",

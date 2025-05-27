@@ -14,8 +14,8 @@ const authOptions = {
     debug: process.env.NODE_ENV === "development",
     providers: [
         GoogleProvider({
-            clientId: config.google.clientId,
-            clientSecret: config.google.clientSecret,
+            clientId: config.auth.google.clientId,
+            clientSecret: config.auth.google.clientSecret,
             authorization: {
                 params: {
                     prompt: "consent",
@@ -25,8 +25,8 @@ const authOptions = {
             },
         }),
         GitHubProvider({
-            clientId: config.github.clientId,
-            clientSecret: config.github.clientSecret,
+            clientId: config.auth.github.clientId,
+            clientSecret: config.auth.github.clientSecret,
         }),
     ],
     session: {
@@ -40,19 +40,11 @@ const authOptions = {
             if (account && account.provider === "google" && profile) {
                 const _profile = profile as GoogleProfile;
                 const _id = `${account.provider}:${user.id}`;
-                return await signInOrSignUp(
-                    _id,
-                    _profile.email,
-                    _profile.email_verified
-                );
+                return await signInOrSignUp(_id, _profile.email, false);
             } else if (account && account.provider === "github" && profile) {
                 const _profile = profile as GithubProfile;
                 const _id = `${account.provider}:${user.id}`;
-                return await signInOrSignUp(
-                    _id,
-                    _profile.email || undefined,
-                    false
-                );
+                return await signInOrSignUp(_id, _profile.email, false);
             } else {
                 console.debug("Sign in: Failed:", {
                     account,
@@ -75,22 +67,24 @@ const authOptions = {
                     throw new Error("");
                 }
                 // obtain user and associated projects from DB
-                const _user = await prisma.user.findFirst({
+                const _user = await prisma.postgres.user.findFirst({
                     where: {
                         id: `${account.provider}:${user.id}`,
                     },
                     include: {
+                        profile: true,
                         projects: true,
                     },
                 });
-                if (_user === null) {
+                if (!_user) {
                     throw new Error("Could not find user.");
                 }
+                const _profile = _user.profile;
                 const _projects = _user.projects;
                 // form the token
                 token.sub = _user.id;
-                token.email = _user.email || undefined;
-                token.emailVerified = _user.emailVerified || undefined;
+                token.email = _profile?.email ?? null;
+                token.emailVerified = _profile?.emailVerified ?? false;
                 token.projects = Object.fromEntries(
                     _projects.map((p) => [
                         p.projectId,

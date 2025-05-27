@@ -21,26 +21,46 @@ services:
     networks:
       - db_network
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: "${APP_NAME}_pgadmin"
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: "${APP_NAME}_pgadmin"
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PWD}
+  #   ports:
+  #     - "8080:80"
+  #   volumes:
+  #     - pgadmin_data:/var/lib/pgadmin
+  #   depends_on:
+  #     - postgres
+  #   restart: unless-stopped
+  #   networks:
+  #     - db_network
+
+  mongodb:
+    image: mongo:latest
+    container_name: "${APP_NAME}_mongodb"
     environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
-      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PWD}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ADMIN_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ADMIN_PWD}
     ports:
-      - "8080:80"
+      - "27017:27017"
     volumes:
-      - pgadmin_data:/var/lib/pgadmin
-    depends_on:
-      - postgres
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     restart: unless-stopped
     networks:
       - db_network
 
 volumes:
   postgres_data:
-  pgadmin_data:
+  # pgadmin_data:
+  mongodb_data:
 
 networks:
   db_network:
-    driver: bridge 
+    driver: bridge

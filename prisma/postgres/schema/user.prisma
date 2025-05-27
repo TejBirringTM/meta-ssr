@@ -1,0 +1,80 @@
+model User {
+  id String @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // one-to-one relationship with UserProfile
+  profile UserProfile?
+  // one-to-one relationship with UserOptions
+  options UserOptions?
+  // many-to-many relationship with Project
+  projects ProjectUser[]
+}
+
+model UserProfile {
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  // contact information
+  email String?
+  emailVerified Boolean
+}
+
+model UserOptions {
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+  // flags
+  welcomeFlag Boolean
+}
+
+model Project {
+  id String @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // properties
+  name String
+  descriptionMarkdown String
+  // many-to-many relationship with User
+  users ProjectUser[]
+}
+
+enum UserRoleOnProject {
+  OWNER
+  EDITOR
+  VIEWER
+}
+
+model ProjectUser {
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // many-to-many relationship between User and Project
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  projectId String
+  project Project @relation(fields: [projectId], references: [id])
+  @@unique([projectId, userId])
+  // role of the User on the Project
+  role UserRoleOnProject
+  // a key used only by the server, on behalf of user
+  serviceKey ProjectUserServiceKey?
+}
+
+/*
+  The service key is used to access project resources on other/third-party storage (such as NoSQL database) on behalf of the user;
+  the service key is used as means on authentication on the other/third-party storage, e.g.: `${userId}:${projectId}:${secret}
+
+  Timestamps can be used to detect and delete "stale" keys, so that they may be regenerated either periodically or on demand.
+
+  The necessary changes will be made to other/third-party storage to ensure credentials are in sync, including role-based permissions
+  of the corresponding ProjectUser.
+*/
+model ProjectUserServiceKey {
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lastUsedAt DateTime
+  // one-to-one relationship with ProjectUser
+  userId String
+  projectId String
+  projectUser ProjectUser @relation(fields: [userId, projectId], references: [userId, projectId])
+  @@unique([userId, projectId])
+  // the key
+  secret String
+}

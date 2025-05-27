@@ -1,5 +1,7 @@
-import { PrismaClient } from "@/generated/lib/prisma";
+import { PrismaClient as PostgresClient } from "@/generated/lib/prisma/postgres";
 
-const prisma = new PrismaClient();
+const prisma = {
+    postgres: new PostgresClient(),
+};
 
 export default prisma;

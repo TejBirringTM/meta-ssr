@@ -37,7 +37,7 @@ check_file_or_exit() {
 check_if_non_empty_string_or_exit "Template filepath" "$1" "Error!\nTemplate filepath (argument no. 1) not specified." > /dev/null;
 
 ## LOAD ENV VARS FROM ENV FILE
-source ../../load-env.sh --quiet;
+source ../../../load-env.sh --quiet;
 
 # Check template file exists.
 check_file_or_exit "$1" "Error!\nTemplate not found: $1";

@@ -1,4 +1,4 @@
-# Developing the Primary Database
+# Developing the Relational Database
 
 The [PostgreSQL](https://www.postgresql.org/about/) relational database management system (RDBMS) provides a means of persisting structured data.
 
