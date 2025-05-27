@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import logo from "@/assets/images/logo/pyramid.jpg";
+import logo from "@/images/logo/pyramid.jpg";
 import { useLoadingStore } from "@/stores/loading-store";
 
 export default function SignIn() {
