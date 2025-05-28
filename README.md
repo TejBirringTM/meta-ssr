@@ -1,17 +1,21 @@
-# MetaSSR - Production-Grade Next.js SSR for AI Applications
+# MetaSSR: Production-Grade AI-Powered SSR Web Applications
 
-[![Next.js](https://img.shields.io/badge/Next.js-13+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
+[![GitHub Stars](https://img.shields.io/github/stars/TejBirringTM/meta-ssr?style=social)](https://github.com/TejBirringTM/meta-ssr/stargazers)
+[![License](https://img.shields.io/github/license/TejBirringTM/meta-ssr?color=blue)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/TejBirringTM/meta-ssr?q=is%3Aissue%20state%3Aopen)](https://github.com/TejBirringTM/meta-ssr/commits/main)
+[![GitHub Issues](https://img.shields.io/github/issues/TejBirringTM/meta-ssr)](https://github.com/TejBirringTM/meta-ssr/issues/?q=is%3Aissue%20state%3Aopen)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
 [![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
 ![AI-Ready](https://img.shields.io/badge/AI--Ready-Augmented_Intelligence-FF6F00)
 ![AI-Ready](https://img.shields.io/badge/AI--Ready-Agentic_Workflows-FF6F00)
 [![Testing](https://img.shields.io/badge/Testing%20Coverage-Unit%20%7C%20Integration%20%7C%20E2E-25A162)](./tests/README.md)
 
-MetaSSR is an opinionated template for building AI-ready, server-side rendered applications with Next.js.
+MetaSSR is an opinionated template for building **AI-ready, server-side rendered web applications** with Next.js.
 
-MetaSSR empowers developers to create augmented intelligence systems and agentic workflows by seamlessly integrating single or multimodal ML models into production-ready SSR apps — all with strict type safety, declarative patterns, and comprehensive testing baked in.
+MetaSSR empowers developers to create **augmented intelligence systems** and **agentic workflows** by seamlessly integrating single or multimodal ML models into production-ready SSR apps — all with strict type safety, declarative patterns, and comprehensive testing baked in.
 
-## Why MetaSSR?
+## 🎯 Why MetaSSR?
 
 ### Rapid Integration
 
@@ -85,7 +89,7 @@ Built-in support for mocking services and containerised testing.
 | **Integration** | `tests/integration/frontend+api`, `tests/integration/api+db` |
 | **E2E**         | `tests/e2e`                                                  |
 
-## 🧪 Testing Strategy
+## 🛡️ Testing Strategy
 
 We follow the Testing Pyramid approach with Behaviour-Driven Development (BDD) principles:
 
@@ -145,7 +149,7 @@ Unit Tests (foundation; many tests)
 
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## � Testing Commands
+## 🧪 Testing Commands
 
 | Command                             | Description                                                                                           |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
@@ -168,6 +172,13 @@ Unit Tests (foundation; many tests)
 **Contributions are welcome!**
 
 Please open an issue or PR for any improvements.
+
+## 💖 Sponsor This Project
+
+Help us build the future of AI-powered SSR:
+
+- [Become a GitHub Sponsor](https://github.com/sponsors/tejbirringTM)
+- [Become a Corporate Sponsor](mailto:tejbirring@gmail.com?subject=Interested%20in%20sponsoring%20MetaSSR...)
 
 ## 📄 License
 
