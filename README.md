@@ -4,12 +4,12 @@
 [![License](https://img.shields.io/github/license/TejBirringTM/meta-ssr?color=blue)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/TejBirringTM/meta-ssr?q=is%3Aissue%20state%3Aopen)](https://github.com/TejBirringTM/meta-ssr/commits/main)
 [![GitHub Issues](https://img.shields.io/github/issues/TejBirringTM/meta-ssr)](https://github.com/TejBirringTM/meta-ssr/issues/?q=is%3Aissue%20state%3Aopen)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
-[![Next.js](https://img.shields.io/badge/Next.js-15+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
-[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
 ![AI-Ready](https://img.shields.io/badge/AI--Ready-Augmented_Intelligence-FF6F00)
 ![AI-Ready](https://img.shields.io/badge/AI--Ready-Agentic_Workflows-FF6F00)
 [![Testing](https://img.shields.io/badge/Testing%20Coverage-Unit%20%7C%20Integration%20%7C%20E2E-25A162)](./tests/README.md)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Next.js](https://img.shields.io/badge/Next.js-15+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
 
 MetaSSR is an opinionated template for building **AI-ready, server-side rendered web applications** with Next.js.
 
