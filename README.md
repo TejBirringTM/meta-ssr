@@ -1,20 +1,72 @@
-# MetaSSR - Opinionated SSR Template for Next.js
+# MetaSSR - Production-Grade Next.js SSR for AI Applications
 
 [![Next.js](https://img.shields.io/badge/Next.js-13+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
+![AI-Ready](https://img.shields.io/badge/AI--Ready-Augmented_Intelligence-FF6F00)
+![AI-Ready](https://img.shields.io/badge/AI--Ready-Agentic_Workflows-FF6F00)
 [![Testing](https://img.shields.io/badge/Testing%20Coverage-Unit%20%7C%20Integration%20%7C%20E2E-25A162)](./tests/README.md)
 
-An opinionated template for building server-side rendered (SSR) applications with Next.js, emphasizing type safety, declarative patterns, and comprehensive testing.
+MetaSSR is an opinionated template for building AI-ready, server-side rendered applications with Next.js.
+
+MetaSSR empowers developers to create augmented intelligence systems and agentic workflows by seamlessly integrating single or multimodal ML models into production-ready SSR apps — all with strict type safety, declarative patterns, and comprehensive testing baked in.
+
+## Why MetaSSR?
+
+### Rapid Integration
+
+Deploy ML models (LLMs, vision, speech, etc.) as API endpoints with type-safe, declarative schemas — no boilerplate!
+
+### Hybrid Architecture
+
+Combine deterministic SSR logic with dynamic streaming AI agents in a unified Next.js framework.
+
+### Multimodal Ready
+
+Process text, images, and structured data in cohesive workflows (e.g., RAG pipelines with real-time UI updates).
+
+### Testable by Design
+
+Built-in support for mocking services and containerised testing.
+
+## 🧩 Use Cases
+
+- **Agentic Workflows:** Chatbots with memory, autonomous research agents
+
+- **Augmented Interfaces:** Real-time document analysis + SSR rendering
+
+- **Multimodal Pipelines:** Vision + text models with unified API contracts
 
 ## ✨ Key Features
 
-- **Modular Monolith Architecture** - Well-organized codebase with clear separation of concerns
+- **Modular Monolith Architecture** - Well-organised codebase with clear separation of concerns
+
 - **Type-Safe Development** - Full TypeScript support end-to-end
+
 - **Declarative Patterns** - Structured declarations over imperative code
+
 - **Self-Documenting Code** - Emphasis on semantic, declarative patterns
+
 - **Testing Pyramid** - Robust test coverage (Unit → Integration → E2E)
+
 - **BDD-Oriented** - Behaviour-Driven Development with `*.spec.ts` focus
+
+- **Zero-Config Instrumentation** - Built-in tracing to capture response latency; AI prompts and token usage, etc.
+
+### 🦾 AI Superpowers
+
+- 🚧 **Agentic Workflow Engine** - Build scalable, autonomous AI processes using built-in state management, asynchronous queue processing, and real-time event signaling for seamless multi-step orchestration.
+
+  - **Cost Controls** -
+  Automatic rate limiting and spend tracking per model
+
+  - **Fallback Strategies** - Configurable failover for unreliable model APIs
+
+- 🚧 **SSR + Streaming AI** - Serve static shells while streaming model responses
+
+- 🚧 **Deterministic Caching** - Versioned outputs for reproducible AI results
+
+- 🚧 **Benchmarking Suite** - Compare model performance across deployments
 
 ## 🛠️ Technical Stack
 
@@ -71,7 +123,7 @@ Unit Tests (foundation; many tests)
    docker-compose up -d
    ```
 
-3. **Database Initialization**
+3. **Database Initialisation**
 
    ```bash
    # One-time setup
