@@ -1,19 +1,49 @@
-# SSR Template
+# MetaSSR
 
-This is a template for a SSR (Server-Side Rendering) Application based on [Next.js](https://nextjs.org).
+An opinionated template codebase for SSR (Server-Side Rendered) Application, based on the [Next.js](https://nextjs.org) framework.
 
-Features:
+- Modular monolith
 
-- Relational Database: PostgreSQL
-  (interfaced using Prisma ORM)
+- Strongly typed
 
-- Declarative schema-validated API endpoints
+- Prefers **structured declarations** over arbitrary sequences of instructions where possible
+  
+  - Favours **Behaviour-Driven Development (BDD)**, supported by robust test infrastructure
+
+  - Encouranges maximum semantic information through **self-documenting *declarative* code**
+
+## Features
+
+- Declarative schema-validated API endpoints (see `./src/libs/utils/api-declr`)
+
+- Backend Infrastructure
+  - Relational Database: PostgreSQL
+    - Interfaced using Prisma ORM
+  - NoSQL Database: MongoDB
+    - Interfaced using Model abstraction *(TODO)*
 
 - Federated Authentication
   - Google Provider
+  - GitHub Provider
+  - *Others available...*
 
-- Multitenant Operation
-  - Role-based permissions
+- Multitenancy Operation
+  - Tenancies are Projects
+    - Each Project has N resources
+    - Project resources are stored in NoSQL database exclusive to the Project
+    - Users are assigned role-based permissions on Project database
+    - Users (created on first sign in via federated auth) and Projects are persisted in SQL database
+
+- Test Infrastructure (see `./tests/README.md`)
+  - Unit Tests
+    - Frontend (i.e. DOM environment for component testing)
+    - Backend (i.e. Node.js environment)
+
+  - Integration Tests
+    - Frontend + API
+    - API + DB (supported by lightweight, ephemeral containers using [Testcontainers](https://testcontainers.com/))
+
+  - End-to-End Tests
 
 ## Getting Started
 
@@ -26,7 +56,7 @@ Create a `.env` file based on `.env.example`.
 1. Source .env file
 
     ```bash
-        cd <project dir>
+        # in <project root dir>
         set -a && source .env && source +a
     ```
 
@@ -50,7 +80,7 @@ Create a `.env` file based on `.env.example`.
         npm run resync-db
     ```
 
-5. Run the database post-initialisation SQL (only once, unless containers or corresponding volumes were destroyed)
+5. Run the database post-initialisation SQL (rerun this command whenever you change a Prisma schema file in `./prisma/schema`)
 
     ```bash
         cd infra/scripts

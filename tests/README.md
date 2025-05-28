@@ -16,7 +16,7 @@
 - **Integration Tests:** Used to test API routes, SSR logic, DB queries.
 - **E2E Tests:** Used to test critical user flows (login, payment).
 
-## End to End Testing (`tests/e2e`)
+## End-to-End Testing (`tests/e2e`)
 
 **Full system, real browser, user-like testing.**
 

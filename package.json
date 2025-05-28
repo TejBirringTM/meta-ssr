@@ -1,7 +1,11 @@
 {
-  "name": "ssr-template",
+  "name": "meta-ssr",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Tej Birring",
+    "email": "tejbirring@gmail.com"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
