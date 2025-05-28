@@ -94,7 +94,7 @@ export default tseslint.config([
 
     // Test file overrides
     {
-        files: ["**/*.test.ts", "**/*.spec.ts"],
+        files: ["tests/**/*.{spec,test}.ts"],
         rules: {
             "@typescript-eslint/no-unsafe-assignment": "off",
             "@typescript-eslint/no-unsafe-argument": "off",
@@ -104,7 +104,11 @@ export default tseslint.config([
 
     // Prettier integration
     {
-        files: ["src/**/*.{ts,tsx,d.ts}", "*.config.{js,mjs,ts,mts}"],
+        files: [
+            "src/**/*.{ts,tsx,d.ts}",
+            "*.config.{js,mjs,ts,mts}",
+            "tests/**/*.{spec,test}.ts",
+        ],
         plugins: {
             prettier: prettierPlugin,
         },
