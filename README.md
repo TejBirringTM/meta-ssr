@@ -11,11 +11,15 @@
 [![Next.js](https://img.shields.io/badge/Next.js-15+-000000?logo=next.js&logoColor=white)](https://nextjs.org)
 [![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)](https://www.prisma.io)
 
-MetaSSR is an opinionated template for building **AI-ready, server-side rendered web applications** with Next.js.
+MetaSSR is an opinionated template for building **AI-ready, multi-tenant, server-side rendered web applications** with Next.js.
 
-MetaSSR empowers developers to create **augmented intelligence systems** and **agentic workflows** by seamlessly integrating single or multimodal ML models into production-ready SSR apps — all with strict type safety, declarative patterns, and comprehensive testing baked in.
+MetaSSR empowers developers to create **augmented intelligence systems** and **agentic workflows** by seamlessly integrating single or multimodal ML models into production-ready SSR apps — all with strict type safety, declarative patterns, comprehensive testing, and multi-tenant authorisation baked in.
 
 ## 🎯 Why MetaSSR?
+
+### Multi-Tenant Data Model and Auth
+
+Streamlined three-tier roles (OWNER/EDITOR/VIEWER) enable zero-friction onboarding (auto-OWNER status for creators), instant team collaboration with role-based permissions, and predictable access control — covering 90% of SaaS use cases without complexity.
 
 ### Rapid Integration
 
@@ -46,6 +50,8 @@ Built-in support for mocking services and containerised testing.
 - **Modular Monolith Architecture** - Well-organised codebase with clear separation of concerns
 
 - **Type-Safe Development** - Full TypeScript support end-to-end
+
+- **Multi-Tenant Data Model and Auth** - Role-based permissions, automatic tenant data isolation (zero-trust defaults), JWT-powered context, and 🚧 full audit logs
 
 - **Declarative Patterns** - Structured declarations over imperative code
 
