@@ -94,7 +94,7 @@ Ensures that different parts of the app (e.g., API + frontend components, server
 
 #### Tools for Integration Testing: Backend/API Calls + Database
 
-- [SuperTest](https://www.npmjs.com/package/supertest) - provides high-level abstraction for testing HTTP, while allowing you to drop down to the lower-level API if/when required
+- [Supertest](https://www.npmjs.com/package/supertest) - provides high-level abstraction for testing HTTP, while allowing you to drop down to the lower-level API if/when required
 
 - [Testcontainers](https://testcontainers.com/) - provides throwaway, lightweight instances of containerised services (e.g. databases, message brokers, web browsers) using Docker; eliminates need for mocks or in-memory services
 
